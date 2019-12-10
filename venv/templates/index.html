@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block body %}
+
+<div class="container">
+    <div class="col-md-12 mt-4">
+        <div class="row justify-content-md-center">
+            <div class="col-md-4">
+                <h4 class="text-center">Upload your STF File</h4>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-md-4">
+                <form action="/" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+                                <input type="file" name="contents" class="custom-file-input" id="inputGroupFile">
+                                <label class="custom-file-label" for="inputGroupFile">Choose file</label>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-block" type="submit">Upload</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {% if stf_data is defined %}
+                    <table style="width: 100%;" class="table table-responsive mt-4">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th class="text-center">ID</th>
+                                <th class="text-center">Entry</th>
+                                <th class="text-center">Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in range(stf_data|length) %}
+                                <tr>
+                                    <td class="text-center">{{ i }}</td>
+                                    <td class="text-center">{% autoescape false %} {{ stf_data[i][0]|replace("\n", "<br />") }} {% endautoescape %}</td>
+                                    <td class="text-center">{% autoescape false %} {{ stf_data[i][1]|replace("\n", "<br />") }} {% endautoescape %} </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
