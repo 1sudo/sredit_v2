@@ -1,10 +1,12 @@
 from flask import Flask, render_template, request, json
 from Classes.stf_reader import STFReader
 
+
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+
     if request.method == 'POST':
         length = request.content_length
         if length > 50000000:
