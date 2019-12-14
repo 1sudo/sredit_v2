@@ -1,0 +1,10 @@
+.navbar {
+  height: 40px;
+  margin-top: 50px;
+  padding: 0px 10px 0px 10px !important;
+}
+
+.navbar-brand img {
+    position: relative;
+    bottom: 30px;
+}
