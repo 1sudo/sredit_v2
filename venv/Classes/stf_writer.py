@@ -10,9 +10,9 @@ class STFWriter:
     -----------------------------------------------------------------------
     These iterate:
     4 more bytes afterwards count for the row number
-    4 more bytes afterwards are all full 8bit bytes (255)
+    4 more bytes afterwards are (255)
     4 more bytes afterwards count for the character count for the value
-    The rest of the row consists of character count + 1 empty 8bit byte
+    The rest of the row consists of character count + 1 empty byte
     -----------------------------------------------------------------------
     """
 
@@ -23,11 +23,6 @@ class STFWriter:
         self.fname = None
 
     def parse_bytes(self, value, num_bytes=None):
-
-        """
-        There should never be a reason you would manually pass through a value higher than
-        65535 - If you are, you're doing it wrong.
-        """
 
         # Specify a number of bytes for the byte array
         if num_bytes is not None:
